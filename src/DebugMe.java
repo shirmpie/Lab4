@@ -3,12 +3,12 @@
 
 import java.util.Arrays;
 
-public class DebugMe{
+public class DebugMe {
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 
 		printSums(args);
-		//compareBoxes();
+		compareBoxes();
 	}
 
 
@@ -52,38 +52,34 @@ public class DebugMe{
 	//Box 2 is larger than Box 4.
 	//Box 3 is larger than Box 4.
 
-/*
-	public static void compareBoxes(){
+
+	public static void compareBoxes() {
 
 		Box[] array = new Box[5];
-		array[0] = new Box(4,5,3,2);
-		array[1] = new Box(2,3,3,1);
-		array[2] = new Box(3,10,2,2);
-		array[3] = new Box(4,4,4,1);
-		array[4] = new Box(5,7,1,1);
+		array[0] = new Box(4, 5, 3, 2);
+		array[1] = new Box(2, 3, 3, 1);
+		array[2] = new Box(3, 10, 2, 2);
+		array[3] = new Box(4, 4, 4, 1);
+		array[4] = new Box(5, 7, 1, 1);
 
-		for(int i = 0; i< array.length;i++){
-			for(int j=i+1; j< array.length;j++){
+		for (int i = 0; i < array.length; i++) {
+			for (int j = i + 1; j < array.length; j++) {
 				//compare for box equivalency
-				if(array[i].equals(array[j])){
+				if (array[i].equals(array[j])) {
 					System.out.println("Box " + i + " is equivalent to " + j + ".");
-				}
-				else
-				{
+				} else {
 					//compare box sizes
-					if(array[i].equals(array[i].larger(array[j])))
-					{
+					if (array[i].equals(array[i].larger(array[j]))) {
 						System.out.println("Box " + i + " is larger than Box " + j + ".");
-					}
-					else
-					{
+					} else {
 						System.out.println("Box " + i + " is smaller than Box " + j + ".");
 					}
 
 				}
 
 			}
-		}*/
+		}
 
 
+	}
 }
