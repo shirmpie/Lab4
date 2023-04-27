@@ -9,6 +9,7 @@ class DebuggingExercise4
         System.out.println("After trying to withdraw $200, " + a.getOwner() + " has $" + a.getBalance());
     }
 }
+
 /*
 * Where is the variable watch window on your screen?
 *   It is at the bottom of the screen when in debug mode.
