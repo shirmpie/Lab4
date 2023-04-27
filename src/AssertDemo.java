@@ -9,6 +9,8 @@
  * Author: Rob Nash
  */
 
+import java.awt.*;
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,15 +21,15 @@ public class AssertDemo {
 	 */
 	public static void main(String[] args) {
 		assert(true);
-		assert(false);
+		//assert(false);
 		
-		warmUpAsserts();
+		//warmUpAsserts();
 		
-		assertWithPrimitives();
+		//assertWithPrimitives();
 		
 		assertWithObjects();
 		
-		homeworkRelatedAsserts();
+		//homeworkRelatedAsserts();
 	}
 
 	/*
@@ -40,9 +42,11 @@ public class AssertDemo {
 			int a = 30;
 			assert(a != 0);
 	
-			assert(null == null);	  //could this ever be false?
+			assert(null == null);	  //could this ever be false? nope
 			assert(true == true);	  //a bad day indeed if this could be false
-			//TODO: craft two more asserts and place them here.  If they're false, they'll crash the program.
+
+			assert (false == false);
+			assert (8 < 15);
 	}
 
 	/*
@@ -65,6 +69,15 @@ public class AssertDemo {
 		ArrayList<String> emptyList = new ArrayList<String>();
 		assert(emptyList.size() == 0);
 		//TODO: build two more asserts that use primitives and relational operators here
+
+		int x = 4;
+		assert(x>=0);
+
+		int y = 7;
+		assert (y == 10);
+
+
+
 	}
 	
 	/*
@@ -79,8 +92,24 @@ public class AssertDemo {
 		assert( ad.equals(ad) );  
 		//TODO: make a few objects from any previous lab and test them with assert
 		//example: make two Point objects at the origin and assert they are equal
-		//assert(p1.equals(p2);  //example
+
+		Point p1 = new Point(5, 9);
+		Point p2 = new Point(5, 9);
+		assert(p2.equals(p1));  //example
+
+		Box[] array = new Box[2];
+		array[0] = new Box(4, 5, 3, 2);
+		array[1] = new Box(4, 5, 3, 2);
+		assert(array[0].equals(array[1]));
 	}
+	/*To what address does “this” map to?
+	'this' maps to the current instance of the 'AssertDemo' class
+
+		To what address does “input” or “ad“ map to?
+	The address to which 'input' or 'ad' map to will depend
+	on the object that is passed as an argument to the checkAddress method,
+	in this case the address of this.
+	* */
 
 
 	/*
@@ -106,5 +135,40 @@ public class AssertDemo {
 		int cents = 0;
 		assert( cents >= 0 && cents <=99);  //another class invariant is written as an assert here.
 		//TODO: craft 2 more asserts that you could use with any assignment
+
+
+		Book hi = new Book();
+		Book bye = new Book();
+		assert (hi.equals(bye));
+
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter a word:");
+		String word1 = scan.nextLine();
+
+		System.out.println("Enter another word:");
+		String word2 = scan.nextLine();
+
+		assert(word1.equals(word2));
+		/*To test immutable objects, we can write test cases
+		that verify that the object's state is correctly initialized
+		in the constructor and that the object's methods return the
+		expected values. Since immutable objects do not have any setters
+		or mutators, there is no need to test methods that modify their state.
+		Testing immutable objects is similar to testing primitives
+		in that once they are created, their state cannot be changed. Reference: ChatGPT
+
+		Which technique do you prefer? Why?
+			I prefer using a GUI because i like seeing what the code is doing at a certain step
+		Are some debugging techniques more (or less) appropriate for longer programs?
+			Using flags and assertions seems more suitable for longer programs
+		What are the advantages to using a debugger with a GUI?
+		What can you inspect here that you couldn’t when just printing to the console?
+			With a GUI debugger, you can inspect variables in real-time while the program is running.
+			GUI debuggers also allow you to set breakpoints in your code
+		How can proper documentation help in finding and avoiding bugs?
+			Well-documented code is typically easier to read and understand.
+			Documentation can reduce misunderstandings and communication errors that could lead to bugs.
+		*/
+
 	}
 }
